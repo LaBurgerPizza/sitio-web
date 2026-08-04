@@ -1,52 +1,563 @@
-/* ===== LA BURGER PIZZA ===== */
+/* ========= LA BURGER PIZZA ========= */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--rojo:#d60000;
+--rojo2:#ff2020;
+--negro:#0f0f0f;
+--gris:#181818;
+--blanco:#ffffff;
+--grisClaro:#cfcfcf;
+
 }
 
 body{
-    background:#111;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
+
+background:var(--negro);
+color:white;
+font-family:'Montserrat',sans-serif;
+overflow-x:hidden;
+
 }
 
+img{
+
+max-width:100%;
+
+}
+
+a{
+
+text-decoration:none;
+
+}
+
+.contenedor{
+
+width:90%;
+max-width:1300px;
+margin:auto;
+
+}
+
+/* HEADER */
+
+.header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(12px);
+z-index:1000;
+
+}
+
+.header .contenedor{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:90px;
+
+}
+
+.logo img{
+
+height:65px;
+
+}
+
+nav ul{
+
+display:flex;
+list-style:none;
+gap:35px;
+
+}
+
+nav a{
+
+color:white;
+font-weight:600;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:var(--rojo2);
+
+}
+
+.btn-menu{
+
+background:var(--rojo);
+padding:14px 28px;
+border-radius:50px;
+color:white;
+font-weight:bold;
+transition:.3s;
+
+}
+
+.btn-menu:hover{
+
+background:var(--rojo2);
+transform:scale(1.05);
+
+}
+
+/* HERO */
+
 .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#111,#300,#111);
-    padding:20px;
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+url("../imagenes/hero.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+
+}
+
+.hero-content{
+
+width:90%;
+max-width:900px;
+
+}
+
+.hero-logo{
+
+width:180px;
+margin-bottom:20px;
+
+animation:logo 1.3s ease;
+
+}
+
+@keyframes logo{
+
+from{
+
+opacity:0;
+transform:translateY(-60px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
 }
 
 .hero h1{
-    font-size:55px;
-    color:#FFD700;
-    margin-bottom:15px;
+
+font-family:'Bebas Neue',sans-serif;
+font-size:90px;
+letter-spacing:4px;
+
+}
+
+.hero h2{
+
+font-size:36px;
+color:#ff3b3b;
+margin-top:10px;
+
 }
 
 .hero p{
-    font-size:22px;
-    color:#ddd;
-    margin-bottom:35px;
+
+margin:35px auto;
+max-width:700px;
+font-size:20px;
+line-height:1.7;
+color:#d5d5d5;
+
 }
 
-.boton{
-    background:#e60012;
-    color:white;
-    text-decoration:none;
-    padding:18px 40px;
-    border-radius:50px;
-    font-size:22px;
-    font-weight:bold;
-    transition:.3s;
+.botones{
+
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+
 }
 
-.boton:hover{
-    background:#ff3030;
-    transform:scale(1.08);
+.btn{
+
+padding:18px 40px;
+border-radius:50px;
+font-weight:bold;
+transition:.35s;
+font-size:18px;
+
+}
+
+.rojo{
+
+background:var(--rojo);
+color:white;
+
+}
+
+.rojo:hover{
+
+background:var(--rojo2);
+transform:translateY(-4px);
+
+}
+
+.blanco{
+
+background:white;
+color:black;
+
+}
+
+.blanco:hover{
+
+transform:translateY(-4px);
+
+}
+
+/* TITULOS */
+
+.titulo{
+
+text-align:center;
+margin-bottom:60px;
+
+}
+
+.titulo h2{
+
+font-family:'Bebas Neue';
+font-size:60px;
+letter-spacing:2px;
+
+}
+
+.titulo p{
+
+color:#bbbbbb;
+
+}
+
+/* ESPECIALIDADES */
+
+.especialidades{
+
+padding:120px 8%;
+
+}
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:35px;
+
+}
+
+.card{
+
+background:#181818;
+padding:45px 30px;
+border-radius:25px;
+text-align:center;
+transition:.4s;
+border:1px solid #222;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+border-color:var(--rojo);
+
+}
+
+.icono{
+
+font-size:60px;
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+font-size:28px;
+margin-bottom:12px;
+
+}
+
+.card p{
+
+color:#c7c7c7;
+line-height:1.6;
+
+}
+
+/* PROMOS */
+
+.promo{
+
+padding:120px 8%;
+background:#141414;
+text-align:center;
+
+}
+
+.promo h2{
+
+font-family:'Bebas Neue';
+font-size:60px;
+margin-bottom:35px;
+
+}
+
+.promo-box{
+
+max-width:850px;
+margin:auto;
+background:#1f1f1f;
+padding:60px;
+border-radius:25px;
+
+}
+
+.promo-box h3{
+
+font-size:34px;
+margin-bottom:15px;
+
+}
+
+.promo-box p{
+
+color:#cfcfcf;
+margin-bottom:30px;
+
+}
+
+/* GALERIA */
+
+.galeria{
+
+padding:120px 8%;
+
+}
+
+.galeria h2{
+
+font-family:'Bebas Neue';
+font-size:60px;
+text-align:center;
+margin-bottom:50px;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+}
+
+.foto{
+
+height:260px;
+background:#2d2d2d;
+border-radius:20px;
+transition:.4s;
+
+}
+
+.foto:hover{
+
+transform:scale(1.04);
+
+}
+
+/* CONTACTO */
+
+.contacto{
+
+padding:120px 8%;
+background:#151515;
+
+}
+
+.contacto h2{
+
+font-family:'Bebas Neue';
+font-size:60px;
+text-align:center;
+margin-bottom:60px;
+
+}
+
+.contacto-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+
+}
+
+.contacto-card{
+
+background:#222;
+padding:35px;
+border-radius:20px;
+text-align:center;
+font-size:22px;
+color:white;
+transition:.35s;
+
+}
+
+.contacto-card:hover{
+
+background:var(--rojo);
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:black;
+padding:60px 20px;
+text-align:center;
+
+}
+
+footer h3{
+
+font-family:'Bebas Neue';
+font-size:45px;
+
+}
+
+footer p{
+
+margin-top:10px;
+color:#bdbdbd;
+
+}
+
+/* BOTON WHATSAPP */
+
+.whatsapp{
+
+position:fixed;
+
+bottom:25px;
+
+right:25px;
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:35px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+transition:.35s;
+
+z-index:999;
+
+}
+
+.whatsapp:hover{
+
+transform:scale(1.1);
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+nav{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.hero-logo{
+
+width:140px;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+.btn-menu{
+
+display:none;
+
+}
+
 }
