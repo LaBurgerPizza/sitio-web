@@ -129,3 +129,12 @@ transform:translateY(0px);
 `;
 
 document.head.appendChild(style);
+const botonMenu=document.querySelector(".menu-toggle");
+
+const menu=document.querySelector(".menu");
+
+botonMenu.addEventListener("click",()=>{
+
+menu.classList.toggle("active");
+
+});
